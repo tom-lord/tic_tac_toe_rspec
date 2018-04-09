@@ -65,6 +65,7 @@ def play_game(player1, player2, b)
 end # play_game
 
 def start_game
+
   puts "Do you want to play tic-tac-toe? (y/n)"
 
   choice = gets.chomp.downcase
@@ -85,7 +86,7 @@ def start_game
     player2 = Player.new(player2name)
     play_game(player1, player2, b)
   when "n"
-    puts "Your loss buddy."
+    puts "Your loss."
   end
 
 end #start_game

@@ -1,21 +1,18 @@
 require 'tic_tac_toe'
 
-describe 'Game' do
-
+  yes_gets = double("yes_gets")
 
   describe 'start_game' do
 
-    let(:output) {double('output').as_null_object}
-    let(:game){start_game(output)}
+    context 'when user starts game' do
+      it 'the game should start' do
+        allow($stdin).to receive(:gets).and_return(yes_gets)
 
-    context 'user starts game' do
-      it "should print 'Do you want to play tic-tac-toe? (y/n)'" do
-        output.should_receive(:puts).with('Do you want to play tic-tac-toe? (y/n)')
-        start_game
+        expect(yes_gets).to receive(:chomp).and_return('y')
       end
     end
   end
 
 
-end
+
 
