@@ -142,6 +142,6 @@ end # class player
 
 # HERE IS WHERE THE MAIN PROGRAM STARTS. IT FIRST CALLS START_GAME WHICH IN TURN CALLS PLAY_GAME
 
-start_game
-
-
+# You don't want to call this in the same file that the methods are defined!
+# Otherwise, you can't test the file!
+### start_game

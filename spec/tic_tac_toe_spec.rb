@@ -1,18 +1,21 @@
 require 'tic_tac_toe'
 
-  yes_gets = double("yes_gets")
-
   describe 'start_game' do
 
     context 'when user starts game' do
-      it 'the game should start' do
-        allow($stdin).to receive(:gets).and_return(yes_gets)
+      def play_game(*args)
+        # Dummy method - so that we can terminate here,
+        # i.e. we're only testing the initial setup
+      end
 
-        expect(yes_gets).to receive(:chomp).and_return('y')
+      it 'the game should start' do
+        allow_any_instance_of(Kernel)
+          .to receive(:gets)
+          .and_return('y', 'p1_name', 'p2_name')
+
+        expect { start_game }
+          .to output(/Ok, let's start!/)
+          .to_stdout
       end
     end
   end
-
-
-
-
